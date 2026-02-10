@@ -55,6 +55,7 @@ Subagents in `.claude/agents/*.md` use YAML frontmatter:
 - `model`: Typically "haiku" for efficiency
 - `color`: CLI output color for visual distinction
 - `skills`: List of skill names to preload into agent context
+- `memory`: Persistent memory scope — `user`, `project`, or `local` (see `reports/claude-agent-memory.md`)
 
 ### Configuration Hierarchy
 1. `.claude/settings.local.json`: Personal settings (git-ignored)
@@ -94,3 +95,4 @@ From experience with this repository:
 - `reports/claude-in-chrome-v-chrome-devtools-mcp.md`: Browser automation MCP comparison (Playwright vs Chrome DevTools vs Claude in Chrome)
 - `reports/claude-md-for-larger-mono-repos.md`: CLAUDE.md loading behavior in monorepos (ancestor vs descendant loading)
 - `reports/claude-skills-for-larger-mono-repos.md`: Skills discovery and loading behavior in monorepos (static vs dynamic discovery)
+- `reports/claude-agent-memory.md`: Agent memory frontmatter — persistent memory scopes (user, project, local) for subagents
