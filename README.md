@@ -22,25 +22,27 @@ practice makes claude perfect
 > **Note:** Custom slash commands have been merged into skills. Files in `.claude/commands/` still work, but skills (`.claude/skills/`) are recommended as they support additional features like supporting files, invocation control, and subagent execution.
 
 - **[Skills](https://code.claude.com/docs/en/skills)** - Reusable knowledge, workflows, and slash commands that Claude can load on-demand or you invoke with `/skill-name`
-- **[Subagents](https://code.claude.com/docs/en/sub-agents)** - Isolated execution contexts that run their own loops and return summarized results
+- **[Agents](https://code.claude.com/docs/en/sub-agents)** - Custom agents in `.claude/agents/` with their own name, color, tools, permissions, and model — usable as default main agent (`"agent"` in settings.json) or as isolated subagents via the Task tool
 - **[Memory](https://code.claude.com/docs/en/memory)** - Persistent context via CLAUDE.md files and `@path` imports that Claude sees every session
 - **[Rules](https://code.claude.com/docs/en/memory#modular-rules-with-clauderules)** - Modular topic-specific instructions in `.claude/rules/*.md` with optional path-scoping via frontmatter
 - **[Hooks](https://code.claude.com/docs/en/hooks)** - Deterministic scripts that run outside the agentic loop on specific events
 - **[MCP Servers](https://code.claude.com/docs/en/mcp)** - Model Context Protocol connections to external tools, databases, and APIs
 - **[Plugins](https://code.claude.com/docs/en/plugins)** - Distributable packages that bundle skills, subagents, hooks, and MCP servers
 - **[Marketplaces](https://code.claude.com/docs/en/discover-plugins)** - Host and discover plugin collections
-- **[Settings](https://code.claude.com/docs/en/settings)** - Hierarchical configuration system for Claude Code behavior
-- **[Permissions](https://code.claude.com/docs/en/iam)** - Fine-grained access control for tools and operations
+- **[Sandbox](https://code.claude.com/docs/en/sandbox)** - File and network isolation runtime that improves safety while reducing permission prompts
+- **[Output Styles](https://code.claude.com/docs/en/output-styles)** - Configurable response tone and format — Explanatory, Learning, or Custom
+- **[Settings](https://code.claude.com/docs/en/settings)** - Hierarchical configuration system for Claude Code behavior (37 settings, 84 env vars)
+- **[Permissions](https://code.claude.com/docs/en/iam)** - Fine-grained access control for tools and operations with wildcard syntax
 
 **Extension Overview:** See [Extend Claude Code](https://code.claude.com/docs/en/features-overview) for when to use each feature and how they layer together.
 
 ## MY EXPERIENCE
 
 ■ **Workflows**
-- Claude.md should not exceed 150+ lines. (still not 100% guarenteed)
+- Claude.md should not exceed 150+ lines. (still not 100% guaranteed)
 - use commands for your workflows instead of agents
 - have feature specific subagents (extra context) with skills (progressive disclosure) instead of general qa, backend engineer.
-- /memory, /rules, constitution.md does not guarentee anything
+- /memory, /rules, constitution.md does not guarantee anything
 - do manual /compact at max 50%
 - always start with plan mode
 - subtasks should be so small that it can be completed in less than 50% context
@@ -52,8 +54,11 @@ practice makes claude perfect
 - Wispr Flow for voice prompting (10x productivity)
 - claude-code-voice-hooks for claude feedback
 - status line for context awareness and fast compacting
-- git worktress for parallel development
-- /config dont ask permission mode instead of dangerously—skip--permissions
+- git worktrees for parallel development
+- /permissions with wildcard syntax (`Bash(npm run *)`, `Edit(/docs/**)`) instead of dangerously-skip-permissions
+- /sandbox to reduce permission prompts with file and network isolation
+- output styles: use Explanatory when learning a new codebase, Learning for coaching
+- /keybindings to remap any key, settings live reload
 
 ■ **Debugging** 
 - /doctor
@@ -62,7 +67,7 @@ practice makes claude perfect
 - provide screenshots of the issue
 
 ## TIPS FROM BORIS CHERNY (CREATOR OF CLAUDE CODE)
-- [Feb 2026 - 12 Tips](reports/claude-boris-tips-February-26.md) ([Reddit thread](https://www.reddit.com/r/ClaudeAI/comments/1r2m8ma/12_claude_code_tips_from_creator_of_claude_code/))
+- [Feb 2026 - 12 Tips](reports/claude-boris-tips-feb-26.md) ([Reddit thread](https://www.reddit.com/r/ClaudeAI/comments/1r2m8ma/12_claude_code_tips_from_creator_of_claude_code/))
 
 ## CONTEXT ENGINEERING
 - [Humanlayer - Writing a good Claude.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md)
@@ -156,4 +161,4 @@ See [weather-orchestration-architecture](weather-orchestration/weather-orchestra
 | [Global vs Project Settings](reports/claude-global-vs-project-settings.md) | Which features are global-only (`~/.claude/`) vs dual-scope, including Tasks and Agent Teams |
 | [Skills Discovery in Monorepos](reports/claude-skills-for-larger-mono-repos.md) | How skills are discovered and loaded in large monorepo projects |
 | [Agent Memory Frontmatter](reports/claude-agent-memory.md) | Persistent memory scopes (`user`, `project`, `local`) for subagents — enabling agents to learn across sessions |
-| [Boris Cherny's 12 Customization Tips](reports/claude-boris-tips-February-26.md) | 12 ways to customize Claude Code — from terminal config to plugins, agents, hooks, and output styles |
+| [Boris Cherny's 12 Customization Tips](reports/claude-boris-tips-feb-26.md) | 12 ways to customize Claude Code — from terminal config to plugins, agents, hooks, and output styles |

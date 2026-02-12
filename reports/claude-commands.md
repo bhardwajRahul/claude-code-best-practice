@@ -80,6 +80,7 @@ A comprehensive reference of all available slash commands in Claude Code's inter
 | `/permissions` | View or update tool permissions |
 | `/theme` | Change the color theme |
 | `/vim` | Enable vim-style editing mode |
+| `/terminal-setup` | Enable shift+enter for newlines in IDE terminals, Apple Terminal, Warp, and Alacritty |
 | `/keybindings` | Customize keyboard shortcuts per context, create chord sequences |
 | `/statusline` | Set up Claude Code's status line UI |
 | `/sandbox` | Configure sandboxing with dependency status |

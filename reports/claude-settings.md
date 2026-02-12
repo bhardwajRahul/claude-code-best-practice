@@ -1,6 +1,6 @@
 # Claude Code Settings Reference
 
-A comprehensive guide to all available configuration options in Claude Code's `settings.json` files.
+A comprehensive guide to all available configuration options in Claude Code's `settings.json` files. As of February 2026, Claude Code exposes **37 settings** and **84 environment variables** (use the `"env"` field in `settings.json` to avoid wrapper scripts).
 
 <table width="100%">
 <tr>
@@ -51,6 +51,7 @@ Claude Code uses a 4-tier configuration hierarchy (highest to lowest priority):
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `model` | string | `"default"` | Override default model. Accepts aliases (`sonnet`, `opus`, `haiku`) or full model IDs |
+| `agent` | string | - | Set the default agent for the main conversation. Value is the agent name from `.claude/agents/`. Also available via `--agent` CLI flag |
 | `language` | string | `"english"` | Claude's preferred response language |
 | `cleanupPeriodDays` | number | `30` | Sessions inactive longer than this are deleted at startup |
 | `autoUpdatesChannel` | string | `"latest"` | Release channel: `"stable"` or `"latest"` |
@@ -61,6 +62,7 @@ Claude Code uses a 4-tier configuration hierarchy (highest to lowest priority):
 ```json
 {
   "model": "opus",
+  "agent": "code-reviewer",
   "language": "japanese",
   "cleanupPeriodDays": 60,
   "autoUpdatesChannel": "stable",
@@ -675,6 +677,7 @@ Set environment variables for all Claude Code sessions.
 ```json
 {
   "model": "sonnet",
+  "agent": "code-reviewer",
   "language": "english",
   "cleanupPeriodDays": 30,
   "autoUpdatesChannel": "stable",
